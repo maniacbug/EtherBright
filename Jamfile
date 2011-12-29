@@ -1,0 +1,10 @@
+AVR_UIP_DIR = $(HOME)/Source/Arduino/avr-uip ;
+COPY_DIRS = uip drivers/interfaces drivers/enc28j60 apps/webclient.PROGMEM ;
+
+for file in [ GLOB $(AVR_UIP_DIR)/$(COPY_DIRS) : *.c *.h ]
+{
+	local _o = $(file:D=$(PWD)) ;
+	File $(_o) : $(file) ;
+	Depends all : $(_o) ;
+}
+
