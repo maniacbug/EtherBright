@@ -169,7 +169,7 @@ webclient_get(const char *host, u16_t port, const char *file)
 }
 /*-----------------------------------------------------------------------------------*/
 unsigned char
-webclient_get_P(const prog_char *host, u16_t port, const prog_char *file)
+webclient_get_P(const char *host, u16_t port, const char *file)
 {
   unsigned char result;
 
@@ -197,7 +197,7 @@ copy_string(char *dest,
 /*-----------------------------------------------------------------------------------*/
 static char *
 copy_string_P(char *dest,
-	    const prog_char *src, unsigned char len)
+	    const char *src, unsigned char len)
 {
   strncpy_P(dest, src, len);
   return dest + len;
@@ -250,7 +250,7 @@ acked(void)
 /*-----------------------------------------------------------------------------------*/
 char *uip_appdata_ptr;
 extern void uip_log(char*);
-extern void uip_log_P(prog_char*);
+extern void uip_log_P(char*);
 /*-----------------------------------------------------------------------------------*/
 static u16_t
 parse_statusline(u16_t len)
@@ -334,7 +334,7 @@ casecmp(char *str1, const char *str2, char len)
 #endif
 /*-----------------------------------------------------------------------------------*/
 static char
-casecmp_P(char *str1, const prog_char *str2, char len)
+casecmp_P(char *str1, const char *str2, char len)
 {
   static char c;
   
